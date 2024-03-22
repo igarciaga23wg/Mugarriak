@@ -11,6 +11,8 @@ public class Main extends JFrame implements ItemListener {
 
     private JTextField textfield;
 
+    private JScrollPane scrollpane;
+
     public Main() {
         setLayout(new BorderLayout());
         comboBox = new JComboBox<String>();
@@ -23,18 +25,25 @@ public class Main extends JFrame implements ItemListener {
 
 
         JButton garbitubotoia = new JButton("Clear");
-        garbitubotoia.setBounds(350,10,100,20);
+        garbitubotoia.setBounds(340,10,100,20);
         add(garbitubotoia);
 
         JButton itxibotoia = new JButton("Close");
-        add(itxibotoia,BorderLayout.SOUTH);
+        itxibotoia.setBounds(640,360,100,20);
+        add(itxibotoia);
+
 
         textfield=new JTextField();
-        textfield.setBounds(600,10,200,300);
+        textfield.setBounds(600,10,350,350);
         add(textfield);
         textArea=new JTextArea();
-        textArea.setBounds(10,50,400,300);
-        add(textArea);
+
+
+
+        scrollpane=new JScrollPane(textArea);
+        scrollpane.setBounds(10,50,400,300);
+        scrollpane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        add(scrollpane);
 
         garbitubotoia.addActionListener(new ActionListener() {
             @Override
@@ -55,7 +64,7 @@ public class Main extends JFrame implements ItemListener {
 
     public static void main(String[] args) {
         Main m1 = new Main();
-        m1.setBounds(0, 0, 700, 500);
+        m1.setBounds(0, 0, 1000, 500);
         m1.setVisible(true);
         m1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
